@@ -1,8 +1,12 @@
 import React from "react";
-// // To be imported in main parent component or App.js
+import Login from "../forms/Login";
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 };
 
 export default LoginPage;
