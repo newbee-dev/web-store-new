@@ -1,15 +1,16 @@
 import "./App.css";
 // import Routes and Route to enable navigation
 import { Routes, Route } from "react-router-dom";
-// import container components to be displayed
+// import container components to be displayed on all urls
 import Header from "./header/Header.js";
+// import container components to be displayed with Routes
 import Landing from "./pages/Landing";
 import ShoppingCart from "./pages/ShoppingCart";
 import ProductPage from "./pages/ProductPage";
 import About from "./pages/About";
 import RegistrationPage from "./pages/RegistrationPage";
 import LoginPage from "./pages/LoginPage";
-// import Shipping from "../Shipping";
+import Shipping from "./pages/Shipping";
 
 function App() {
   return (
@@ -22,8 +23,8 @@ function App() {
         <Route exact path="/about" element={<About />} />
         <Route exact path="/RegistrationPage" element={<RegistrationPage />} />
         <Route exact path="/LoginPage" element={<LoginPage />} />
-        {/* Shipping for later */}
-        {/* <Route exact path="/shipping" element={<Shipping />} /> */}
+
+        <Route exact path="/shipping" element={<Shipping />} />
       </Routes>
     </div>
   );
@@ -79,3 +80,24 @@ export default App;
 //  Have imported { Routes, Route } from "react-router-dom"; in App.js
 //  Wrapped routes around container components and router per c.component to exaxt routes in App.js
 // I have added and committed components, pages and redux stuff to Git (must still work on and add forms css packagejson etc) going to add and commit app.js
+// added About component stuff and css styles added and committed via git
+// added imports to Register.js added and committed via git
+// added validation schema to Register.js and added and committed via git
+// Formik form and inputs etc added and committed to Register.js
+// css styles for Register and corrected file path added and committed
+// boilerplate container component and imports added to Login.js added and committed
+// added and committed changes in RegistrationPage.js
+// added formik login form to be rendered, added and committed
+// imported Login.js into LoginPage.js added and committed
+//  added landing imports initialised functionality and handleClick. added and committed
+// added return div content in Landing.js and css classNames and logic to check if the user is logged in or out. Added and committed.
+// added Landing.js styles and included styles for other components there. added and committed.
+// Added imports for ProductPage.js. added and committed
+// Added Products array of objects to ProductPage.js. added and committed.
+// Initialised useDispatch and add to handleClick function. Added and committed
+// Added css styles for ProductPage.css
+// Added container, columns rows cards, map function, mapping item k.v pairs to ProductPage.js. added and committed.
+// added and committed ProductPage.css
+//  added function, child component imports to ShoppingCart.js. added and committed.
+// Added list of mapped items and totalprice and buttons. added and committed.
+// imported Shipping.js and added route to Shipping.js to App.js. Added and committed.
