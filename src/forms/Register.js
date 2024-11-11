@@ -54,4 +54,109 @@ const Register = () => {
         "Password must contain at least one special character"
       ),
   });
+
+  return (
+    <Formik
+      initialValues={{
+        firstName: "",
+        lastName: "",
+        username: "",
+        email: "",
+        password: "",
+      }}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {({
+        values,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+        errors,
+        touched,
+      }) => (
+        <Form className="registration-form">
+          <div className="form-group">
+            <label htmlFor="firstName">First Name:</label>
+            <input
+              className="form-control"
+              type="text"
+              id="firstName"
+              name="firstName"
+              value={values.firstName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.firstName && touched.firstName && (
+              <div className="error">{errors.firstName}</div>
+            )}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="lastName">Last Name:</label>
+            <input
+              className="form-control"
+              type="text"
+              id="lastName"
+              name="lastName"
+              value={values.lastName}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.lastName && touched.lastName && (
+              <div className="error">{errors.lastName}</div>
+            )}
+          </div>
+          <div className="form-group">
+            <label htmlFor="username">Username:</label>
+            <input
+              className="form-control"
+              type="text"
+              id="username"
+              name="username"
+              value={values.username}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.username && touched.username && (
+              <div className="error">{errors.username}</div>
+            )}
+          </div>
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              className="form-control"
+              type="email"
+              id="email"
+              name="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.email && touched.email && (
+              <div className="error">{errors.email}</div>
+            )}
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password:</label>
+            <input
+              className="form-control"
+              type="password"
+              id="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+            />
+            {errors.password && touched.password && (
+              <div className="error">{errors.password}</div>
+            )}
+          </div>
+          <ReusableButton onClick={handleSubmit}>Register</ReusableButton>
+        </Form>
+      )}
+    </Formik>
+  );
 };
+export default Register;
