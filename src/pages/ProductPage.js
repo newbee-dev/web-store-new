@@ -101,6 +101,13 @@ const ProductPage = () => {
     },
   ];
 
+  const dispatch = useDispatch();
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
   return <div>ProductPage</div>;
 };
 
