@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import actions from reducer
 import { showPopup, hidePopup } from "../redux/reducers/popupSlice";
+import "../styles/InfoPopup.css";
 
 const InfoPopup = () => {
   // initialise useSelector to read state and useDispatch to call reducer function actions onClick
@@ -20,7 +21,22 @@ const InfoPopup = () => {
   const handleCloseClick = () => {
     dispatch(hidePopup());
   };
-  return <div>InfoPopup</div>;
+  return (
+    <div>
+      <button className="info-button" onClick={handleInfoClick}>
+        Info
+      </button>
+
+      {popupState.isVisible && (
+        <div className="info-popup">
+          <div className="popup-content">{popupState.content}</div>
+          <button className="close-button" onClick={handleCloseClick}>
+            X
+          </button>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default InfoPopup;
