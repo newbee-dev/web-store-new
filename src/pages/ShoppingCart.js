@@ -16,6 +16,25 @@ import { useNavigate } from "react-router-dom";
 // import { logout } from "./authSlice";
 
 const ShoppingCart = () => {
+  // initialise useSelector to access and read current state of cart items
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  // initialise useDispatch for remove from cart action and to change state value
+  const dispatch = useDispatch();
+  // initialise useNavigate for navigation
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // Navigate to shipping
+    navigate("/shipping");
+  };
+
+  // const handleLogout = () => {
+  //   dispatch(logout());
+  // };
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product));
+  };
   return <div>ShoppingCart</div>;
 };
 
