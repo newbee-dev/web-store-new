@@ -1,12 +1,13 @@
 // // component that displays... will trigger reducer functions and also displays the state value
 // // To be imported in main parent component or App.js
 import React from "react";
-
+// import useDispatch to change, and useSelector to read, state
 import { useDispatch, useSelector } from "react-redux";
 // Import the action creator
 import { addToCart } from "../redux/reducers/cartSlice";
 // Import Link for navigation
 import { Link } from "react-router-dom";
+// import bootstrap card, container, row and column for responsive layout
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
@@ -108,7 +109,45 @@ const ProductPage = () => {
     dispatch(addToCart(product));
   };
 
-  return <div>ProductPage</div>;
+  return (
+    <div>
+      <TotalPrice />
+      <Container className="card-container">
+        {/* add responsive design and use map method to map item key value pairs of products array of objects */}
+        <Row xs={1} md={2} lg={3} xl={4}>
+          {products.map((product) => (
+            <Col key={product.id}>
+              <Card className="card-style">
+                <div class="ratio ratio-4x3">
+                  <Card.Img
+                    variant="top"
+                    className="card-image img-fluid"
+                    src={product.picture}
+                    alt={product.title}
+                  />
+                </div>
+                <Card.Body className="card-background">
+                  <Card.Title>
+                    <h2>{product.title}</h2>
+                  </Card.Title>
+
+                  <Card.Text>
+                    <p>{product.description}</p>
+
+                    <p>Price: {product.price}</p>
+                  </Card.Text>
+                  <ReusableButton onClick={() => handleAddToCart(product)}>
+                    Add to Cart
+                  </ReusableButton>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+      <Link to="/cart">View Cart</Link> {/* Add a link to the cart page */}
+    </div>
+  );
 };
 
 export default ProductPage;
