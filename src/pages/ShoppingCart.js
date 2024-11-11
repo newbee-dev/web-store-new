@@ -13,7 +13,7 @@ import TotalPrice from "../components/TotalPrice";
 // import useNavigate for navigation functionality
 import { useNavigate } from "react-router-dom";
 
-// import { logout } from "./authSlice";
+// import { logout } from "../redux/reducers/authSlice";
 
 const ShoppingCart = () => {
   // initialise useSelector to access and read current state of cart items
@@ -35,7 +35,41 @@ const ShoppingCart = () => {
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
-  return <div>ShoppingCart</div>;
+  return (
+    <div>
+      <h2 className="heading-text">Shopping Cart</h2>
+      <div>
+        <TotalPrice />
+      </div>
+
+      {/* <nav>
+        <Link to="/">Home</Link>
+      </nav> */}
+      {cartItems.length > 0 ? (
+        <ul>
+          {cartItems.map((item) => (
+            <li key={item.id}>
+              <p className="text-cart">{item.title}</p>
+              <img className="cart-pic" src={item.picture} alt={item.title} />
+              <p className="text-cart">Price: {item.price}</p>
+
+              <ReusableButton onClick={() => handleRemoveFromCart(item)}>
+                remove
+              </ReusableButton>
+              <br />
+              <ReusableButton onClick={() => handleClick()}>
+                shipping
+              </ReusableButton>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Your cart is empty!</p>
+      )}
+
+      {/* <ReusableButton onClick={handleLogout}>Logout</ReusableButton> */}
+    </div>
+  );
 };
 
 export default ShoppingCart;
