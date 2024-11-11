@@ -1,0 +1,17 @@
+.my-figure {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.text {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.img {
+  border-radius: 30px;
+  margin: auto;
+  padding: 1.5rem;
+}
