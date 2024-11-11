@@ -1,10 +1,11 @@
 import React from "react";
 import ShippingOptions from "../ui-components/ShippingOptions";
-// // To be imported in main parent component or App.js
+import InfoPopup from "../ui-components/InfoPopup";
 
 const Shipping = () => {
   return (
     <div>
+      <InfoPopup />
       <ShippingOptions />
     </div>
   );
