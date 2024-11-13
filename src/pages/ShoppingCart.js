@@ -13,8 +13,6 @@ import TotalPrice from "../components/TotalPrice";
 // import useNavigate for navigation functionality
 import { useNavigate } from "react-router-dom";
 
-// import { logout } from "../redux/reducers/authSlice";
-
 const ShoppingCart = () => {
   // initialise useSelector to access and read current state of cart items
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -28,19 +26,17 @@ const ShoppingCart = () => {
     navigate("/shipping");
   };
 
-  // const handleLogout = () => {
-  //   dispatch(logout());
-  // };
-
   const handleRemoveFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
   return (
     <div>
-      <h2 className="heading-text">Shopping Cart</h2>
+      <hr />
       <div>
         <TotalPrice />
       </div>
+      <hr />
+      <h2 className="heading-text">Current items in cart:</h2>
 
       {/* <nav>
         <Link to="/">Home</Link>
@@ -49,8 +45,8 @@ const ShoppingCart = () => {
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              <p className="text-cart">{item.title}</p>
-              <img className="cart-pic" src={item.picture} alt={item.title} />
+              <p className="item-text">{item.title}</p>
+              <img className="img" src={item.picture} alt={item.title} />
               <p className="text-cart">Price: {item.price}</p>
 
               <ReusableButton onClick={() => handleRemoveFromCart(item)}>
@@ -66,8 +62,6 @@ const ShoppingCart = () => {
       ) : (
         <p>Your cart is empty!</p>
       )}
-
-      {/* <ReusableButton onClick={handleLogout}>Logout</ReusableButton> */}
     </div>
   );
 };
