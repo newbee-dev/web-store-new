@@ -1,10 +1,11 @@
 import React from "react";
 import ShippingOptions from "../ui-components/ShippingOptions";
 import InfoPopup from "../ui-components/InfoPopup";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ReusableButton from "../components/ReusableButton";
-// import useNavigate hook to enable navigation
 import { useNavigate } from "react-router-dom";
+
+import { logout } from "../redux/reducers/authSlice";
 
 const Shipping = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
@@ -25,11 +26,12 @@ const Shipping = () => {
 
   const grandTotal = calculateGrandTotal();
 
-  // initialise useNavigate for navigation
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleClick = () => {
     alert("Thank-you! Your order has been processed");
+    dispatch(logout());
     navigate("/");
   };
 
