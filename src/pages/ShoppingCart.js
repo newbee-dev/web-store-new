@@ -31,22 +31,19 @@ const ShoppingCart = () => {
   };
   return (
     <div>
-      <hr />
+      <h2 className="heading-text">Shopping Cart</h2>
       <div>
         <TotalPrice />
       </div>
-      <hr />
-      <h2 className="heading-text">Current items in cart:</h2>
 
-      {/* <nav>
-        <Link to="/">Home</Link>
-      </nav> */}
       {cartItems.length > 0 ? (
         <ul>
           {cartItems.map((item) => (
             <li key={item.id}>
-              <p className="item-text">{item.title}</p>
-              <img className="img" src={item.picture} alt={item.title} />
+              <p className="text-cart">
+                {item.title} - {item.size}
+              </p>
+              <img className="cart-pic" src={item.picture} alt={item.title} />
               <p className="text-cart">Price: {item.price}</p>
 
               <ReusableButton onClick={() => handleRemoveFromCart(item)}>
@@ -65,5 +62,3 @@ const ShoppingCart = () => {
     </div>
   );
 };
-
-export default ShoppingCart;
