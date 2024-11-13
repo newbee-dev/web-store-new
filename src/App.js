@@ -101,3 +101,10 @@ export default App;
 //  added function, child component imports to ShoppingCart.js. added and committed.
 // Added list of mapped items and totalprice and buttons. added and committed.
 // imported Shipping.js and added route to Shipping.js to App.js. Added and committed.
+// Added bootstap checkbox form with option names in ShippingOptions.js. added and committed
+// imported and addedShippingOptions.js to parent container component Shipping.js. added and committed
+// added imports and initialised functions in InfoPopup.js. Added and committed.
+// added return div buttons etc. added and committed.
+// added styling to InfoPopup css. added and committed
+// imported InfoPopup into Shipping.js. Added and committed
+// added basic shipping info to infopopup content
