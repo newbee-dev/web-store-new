@@ -15,6 +15,8 @@ import Col from "react-bootstrap/Col";
 import "../styles/ProductPage.css";
 import ReusableButton from "../components/ReusableButton";
 import TotalPrice from "../components/TotalPrice";
+import React, { useState } from "react";
+import SizeDropdown from "../ui-components/SizeDropdown";
 
 const ProductPage = () => {
   const products = [
@@ -102,11 +104,13 @@ const ProductPage = () => {
     },
   ];
 
+  const [selectedSize, setSelectedSize] = useState("");
+
   const dispatch = useDispatch();
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product));
+    dispatch(addToCart({ ...product, size: selectedSize }));
   };
 
   return (
@@ -135,6 +139,7 @@ const ProductPage = () => {
                     <p>{product.description}</p>
 
                     <p>Price: {product.price}</p>
+                    <SizeDropdown onSelect={setSelectedSize} />
                   </Card.Text>
                   <ReusableButton onClick={() => handleAddToCart(product)}>
                     Add to Cart
