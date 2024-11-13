@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // import Link from react router to enable navigation
 import { Link } from "react-router-dom";
-import ReusableButton from "../components/ReusableButton";
+// import ReusableButton from "../components/ReusableButton";
 // // In the component that displays we...
 // // import useSelector (retrieves state from store)
 // // import useDispatch (excecutes actions that modify state)
@@ -45,12 +45,9 @@ function NaviGate() {
           </Nav>
           <Nav>
             {user ? (
-              <ReusableButton
-                className="nav-link my-link"
-                onClick={handleLogout}
-              >
+              <button className="nav-link my-link" onClick={handleLogout}>
                 Logout
-              </ReusableButton>
+              </button>
             ) : (
               <>
                 <Link className="nav-link my-link" to="/registrationPage">
