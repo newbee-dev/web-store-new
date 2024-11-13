@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 // import useSelector to read, and useDispatch to change, state
 import { useSelector, useDispatch } from "react-redux";
 // import formik functions
@@ -10,8 +10,6 @@ import ReusableButton from "../components/ReusableButton";
 import { loginSuccess } from "../redux/reducers/authSlice";
 // import navigation functionality
 import { useNavigate } from "react-router-dom";
-
-import React from "react";
 
 const Login = () => {
   // initialise imports
