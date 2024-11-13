@@ -1,41 +1,48 @@
 import React from "react";
 // import bootstrap form to render
 import Form from "react-bootstrap/Form";
-// import container and row from react bootstrap
-import { Container, Row } from "react-bootstrap";
-import "../styles/ShippingOptions.css";
+import { useDispatch, useSelector } from "react-redux";
+import { updateSelectedShipping } from "../redux/reducers/cartSlice;";
 
 function ShippingOptions() {
-  return (
-    <Container>
-      <Row>
-        <div>
-          <Form>
-            <Form.Group controlId="formBasicRadio">
-              <h2 className="heading-text">Shipping Options</h2>
+  const dispatch = useDispatch();
+  const selectedShippingOption = useSelector(
+    (state) => state.cart.selectedShippingOption
+  );
 
-              <div className="radio-checks">
-                <Form.Check
-                  type="radio"
-                  label="Standard Shipping"
-                  name="shippingOption"
-                  id="standardShipping"
-                  defaultChecked
-                  className="me-auto"
-                />
-                <Form.Check
-                  type="radio"
-                  label="Speedy Shipping"
-                  name="shippingOption"
-                  id="speedyShipping"
-                  className="me-auto"
-                />
-              </div>
-            </Form.Group>
-          </Form>
-        </div>
-      </Row>
-    </Container>
+  const handleShippingChange = (event) => {
+    dispatch(updateSelectedShipping(event.target.value));
+  };
+  return (
+    <div>
+      <Form>
+        <Form.Group controlId="formBasicRadio">
+          <h2 className="heading-text">Shipping Options</h2>
+
+          <div className="radio-container">
+            <Form.Check
+              type="radio"
+              label="Standard Shipping"
+              name="shippingOption"
+              id="standardShipping"
+              value="standardShipping"
+              checked={selectedShippingOption === "standardShipping"}
+              onChange={handleShippingChange}
+              defaultChecked
+            />
+            <Form.Check
+              type="radio"
+              label="Speedy Shipping"
+              name="shippingOption"
+              id="speedyShipping"
+              value="speedyShipping"
+              checked={selectedShippingOption === "speedyShipping"}
+              onChange={handleShippingChange}
+            />
+          </div>
+        </Form.Group>
+      </Form>
+    </div>
   );
 }
 
