@@ -10,6 +10,13 @@
   /* z-index to ensure it appears above other content  */
   z-index: 1000;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  /* Enable flexbox layout */
+  display: flex;
+  /* Align items at opposite ends */
+  justify-content: space-between;
+  /* Vertically align checkboxes and descriptions */
+  align-items: center;
 }
 
 .popup-content {
