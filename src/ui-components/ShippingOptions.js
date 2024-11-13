@@ -2,7 +2,7 @@ import React from "react";
 // import bootstrap form to render
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
-import { updateSelectedShipping } from "../redux/reducers/cartSlice;";
+import { updateSelectedShipping } from "../redux/reducers/cartSlice";
 
 function ShippingOptions() {
   const dispatch = useDispatch();
