@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 // import actions from reducer
 import { showPopup, hidePopup } from "../redux/reducers/popupSlice";
 import "../styles/InfoPopup.css";
+import ReusableButton from "../components/ReusableButton";
 
 const InfoPopup = () => {
   // initialise useSelector to read state and useDispatch to call reducer function actions onClick
@@ -13,7 +14,7 @@ const InfoPopup = () => {
   const handleInfoClick = () => {
     dispatch(
       showPopup(
-        "Random text goes here for now. Random text goes here for now .Random text goes here for now  "
+        "standard shipping: 5-7 business days; R50. Fast shipping: 2-3 business days; R120. Free shipping if you spend over R 500  "
       )
     );
   };
@@ -23,9 +24,7 @@ const InfoPopup = () => {
   };
   return (
     <div>
-      <button className="info-button" onClick={handleInfoClick}>
-        Info
-      </button>
+      <ReusableButton onClick={handleInfoClick}>Info</ReusableButton>
 
       {popupState.isVisible && (
         <div className="info-popup">

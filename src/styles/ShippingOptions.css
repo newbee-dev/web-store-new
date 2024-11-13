@@ -1,0 +1,9 @@
+.shipping-options {
+  /* Enable flexbox layout */
+  display: flex;
+  /* Align items at opposite ends */
+  justify-content: space-between;
+  /* Vertically align checkboxes and descriptions */
+  align-items: center;
+  margin-left: 6rem;
+}
