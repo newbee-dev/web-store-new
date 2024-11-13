@@ -14,7 +14,7 @@ const InfoPopup = () => {
   const handleInfoClick = () => {
     dispatch(
       showPopup(
-        "standard shipping: 5-7 business days; R50. Fast shipping: 2-3 business days; R120. Free shipping if you spend over R 500  "
+        "standard shipping: 5-7 business days (R50) Fast shipping: 2-3 business days (R120). "
       )
     );
   };
@@ -24,7 +24,7 @@ const InfoPopup = () => {
   };
   return (
     <div>
-      <ReusableButton onClick={handleInfoClick}>Info</ReusableButton>
+      <ReusableButton onClick={handleInfoClick}>help</ReusableButton>
 
       {popupState.isVisible && (
         <div className="info-popup">
