@@ -1,8 +1,13 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
+import "../styles/ReusableButton.css";
 
 const ReusableButton = ({ onClick, children }) => {
-  return <Button onClick={onClick}>{children}</Button>;
+  return (
+    <button className="button-style" onClick={onClick}>
+      {children}
+    </button>
+  );
 };
 
 export default ReusableButton;
