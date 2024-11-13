@@ -1,3 +1,14 @@
 .App {
   text-align: center;
 }
+
+.radio-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.radio-container input[type="radio"] {
+  margin: 7px;
+  padding: 5px;
+}
