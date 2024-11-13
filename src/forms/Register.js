@@ -8,7 +8,7 @@ import { registerUser } from "../redux/reducers/authSlice";
 import "../styles/Register.css";
 
 // Import your reusable button component
-import ReusableButton from "./ReusableButton";
+import ReusableButton from "../components/ReusableButton";
 // import useNavigate hook to enable navigation
 import { useNavigate } from "react-router-dom";
 
