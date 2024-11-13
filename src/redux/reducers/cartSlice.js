@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   cartItems: [],
   totalPrice: 0,
+  selectedShippingOption: "standardShipping",
 };
 
 const cartSlice = createSlice({
@@ -15,6 +16,7 @@ const cartSlice = createSlice({
     //  defined as key-value pairs where the key is the function name and the value is a function.
     // A function typically has two arguments, state and action
     addToCart(state, action) {
+      const { id, size } = action.payload;
       const existingItem = state.cartItems.find(
         (item) => item.id === action.payload.id
       );
@@ -24,6 +26,9 @@ const cartSlice = createSlice({
         state.cartItems.push({ ...action.payload, quantity: 1 });
       }
       state.totalPrice += action.payload.price;
+    },
+    updateSelectedShipping(state, action) {
+      state.selectedShippingOption = action.payload;
     },
     removeFromCart(state, action) {
       const itemIndex = state.cartItems.findIndex(
@@ -44,6 +49,7 @@ const cartSlice = createSlice({
 // Actions receive data from the component they are imported into, to make dynamic changes to the state.
 // EXPORTED TO RELEVENT COMPONENT
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, updateSelectedShipping, removeFromCart } =
+  cartSlice.actions;
 //Export the reducer function EXPORT TO STORE
 export default cartSlice.reducer;
