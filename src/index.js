@@ -1,13 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+// import redux store
+import store from "./redux/store";
+// import redux provider for provider wrapping
+import { Provider } from "react-redux";
+// import bootstrap into index.js to access styles
+import "bootstrap/dist/css/bootstrap.css";
+// import BrowserRouter to encase app and provide navigation
+import { BrowserRouter } from "react-router-dom";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  // encase APP with provider wrapping to access global state
+  // passing store as a prop
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
