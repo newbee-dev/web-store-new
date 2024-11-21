@@ -1,6 +1,6 @@
 // // component that displays... will trigger reducer functions and also displays the state value
 // // To be imported in main parent component or App.js
-import React from "react";
+
 // import useDispatch to change, and useSelector to read, state
 import { useDispatch, useSelector } from "react-redux";
 // Import the action creator
